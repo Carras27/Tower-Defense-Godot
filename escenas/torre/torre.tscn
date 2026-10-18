@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://e0to55s4b2p8"]
+
+[ext_resource type="SpriteFrames" uid="uid://buvgw1d5y1bef" path="res://escenas/torre/torre_sprite_frame.tres" id="1_0xco1"]
+[ext_resource type="Script" uid="uid://bd8oca35wet8x" path="res://escenas/torre/torre.gd" id="1_qhyvb"]
+[ext_resource type="PackedScene" uid="uid://d1kd2b3e2drr3" path="res://escenas/bala/bala.tscn" id="2_mtacg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87ym7"]
+size = Vector2(29, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xco1"]
+radius = 53.781967
+
+[node name="Torre" type="CharacterBody2D" unique_id=1088420601 node_paths=PackedStringArray("animacion", "area_2d", "salida_bala", "temporizador_cooldown")]
+input_pickable = true
+script = ExtResource("1_qhyvb")
+animacion = NodePath("Silla")
+area_2d = NodePath("Area2D")
+escena_bala = ExtResource("2_mtacg")
+salida_bala = NodePath("PosicionSalidaBala")
+temporizador_cooldown = NodePath("Cooldown")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245306420]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_87ym7")
+
+[node name="Silla" type="AnimatedSprite2D" parent="." unique_id=763292411]
+sprite_frames = ExtResource("1_0xco1")
+animation = &"hoover"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1252332456]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1061828784]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("CircleShape2D_0xco1")
+debug_color = Color(0.9952406, 0, 0.21650168, 0.41960785)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1828087727]
+one_shot = true
+
+[node name="PosicionSalidaBala" type="Marker2D" parent="." unique_id=1707032357]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

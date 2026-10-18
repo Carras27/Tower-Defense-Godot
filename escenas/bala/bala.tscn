@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d1kd2b3e2drr3"]
+
+[ext_resource type="Texture2D" uid="uid://ub8j8cjchtkk" path="res://sprites/tenedor.png" id="1_if54r"]
+[ext_resource type="Script" uid="uid://j1aa80ci0xjn" path="res://escenas/bala/bala.gd" id="1_y3y4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3y4p"]
+size = Vector2(17, 9)
+
+[node name="Bala" type="Area2D" unique_id=1984096942]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_y3y4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2013767806]
+rotation = 1.5707964
+texture = ExtResource("1_if54r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1135584225]
+visible = false
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_y3y4p")
+
+[node name="Vida" type="Timer" parent="." unique_id=1198993481]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Vida" to="." method="_on_vida_timeout"]

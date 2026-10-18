@@ -1,0 +1,108 @@
+[gd_scene format=4 uid="uid://crvrf4cqdbxlx"]
+
+[ext_resource type="Texture2D" uid="uid://xgmxuocua02n" path="res://sprites/tileset_pruebas.png" id="1_7dyb3"]
+[ext_resource type="Script" uid="uid://cgjekaoo4cv2g" path="res://escenas/nivel_1/nivel_1.gd" id="1_wpukg"]
+[ext_resource type="PackedScene" uid="uid://ivecpkyocvy0" path="res://escenas/enemigo/enemigo.tscn" id="2_ahhdk"]
+[ext_resource type="Script" uid="uid://cdjv0yao5d2pg" path="res://escenas/nivel_1/path_follow_2d.gd" id="3_bfali"]
+[ext_resource type="PackedScene" uid="uid://e0to55s4b2p8" path="res://escenas/torre/torre.tscn" id="5_dn0x7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ahhdk"]
+texture = ExtResource("1_7dyb3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lj0fl"]
+sources/0 = SubResource("TileSetAtlasSource_ahhdk")
+
+[sub_resource type="Curve2D" id="Curve2D_bfali"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 55, 29, 15.617457, 22.420794, -15.617457, -22.420794, -18, 28, 0, 0, 0, 0, -16, -82)
+}
+point_count = 3
+
+[node name="Nivel1" type="Node2D" unique_id=970002797 node_paths=PackedStringArray("enemigos")]
+script = ExtResource("1_wpukg")
+enemigos = [NodePath("Path2D/PathFollow2D/Enemigo")]
+
+[node name="Suelo" type="TileMapLayer" parent="." unique_id=894020795]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wAAAAADAAAAAAD+/wAAAAADAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9////AAAAAAAAAAD+////AAADAAAAAAD/////AAADAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAABAAAAAAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAD8//3/AAAAAAAAAAD8//z/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAADAAAAAAD///v/AAADAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAADAAAAAAADAAIAAAADAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAADAAAAAAD//wEAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAACAAAAAAAAAAAAAAACAAIAAAADAAAAAAABAAIAAAADAAAAAAAAAAIAAAADAAAAAAD//wIAAAADAAAAAAD+/wIAAAADAAAAAAD9/wIAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD//wQAAAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAADAAAAAAD///7/AAADAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAPz/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAD///z/AAADAAAAAAD+//z/AAADAAAAAAD9//z/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAADAAAAAAD///3/AAADAAAAAAAAAP3/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_lj0fl")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2004213369]
+position = Vector2(2.2602727, 0.7387333)
+scale = Vector2(0.9589041, 1.009009)
+curve = SubResource("Curve2D_bfali")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1049042189]
+position = Vector2(55, 29)
+rotation = 2.7843149
+script = ExtResource("3_bfali")
+
+[node name="Enemigo" parent="Path2D/PathFollow2D" unique_id=2146049205 instance=ExtResource("2_ahhdk")]
+rotation = -2.7843149
+scale = Vector2(1.0428572, 0.99107146)
+
+[node name="Torre" parent="." unique_id=1088420601 instance=ExtResource("5_dn0x7")]
+position = Vector2(17, -1)

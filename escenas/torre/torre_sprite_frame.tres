@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://buvgw1d5y1bef"]
+
+[ext_resource type="Texture2D" uid="uid://bqop52u3i01gu" path="res://sprites/silla.png" id="1_8lwdq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0762"]
+atlas = ExtResource("1_8lwdq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nmgp"]
+atlas = ExtResource("1_8lwdq")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0762")
+}],
+"loop": 1,
+"name": &"hoover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nmgp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
